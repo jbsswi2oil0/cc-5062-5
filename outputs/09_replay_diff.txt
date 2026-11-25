@@ -1,0 +1,5 @@
+batch replay diff against a single-run reference
+
+one_shot         max|diff|=0.000e+00 identical=True stamps=46
+small_batches    max|diff|=0.000e+00 identical=True stamps=46
+singletons_tail  max|diff|=0.000e+00 identical=True stamps=46
