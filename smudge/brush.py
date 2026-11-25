@@ -56,6 +56,23 @@ class Brush:
         self._dx = dx.ravel()
         self._profile = self._profile_weights(dy.ravel(), dx.ravel())
 
+    def to_dict(self) -> dict:
+        return {
+            "radius": self.radius,
+            "shape": self.shape,
+            "supersample": self.supersample,
+            "sigma_scale": self.sigma / self.radius if self.radius else 0.5,
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict) -> "Brush":
+        return cls(
+            radius=float(data["radius"]),
+            shape=str(data.get("shape", "disk")),
+            supersample=int(data.get("supersample", 5)),
+            sigma_scale=float(data.get("sigma_scale", 0.5)),
+        )
+
     def _profile_weights(self, dy: np.ndarray, dx: np.ndarray) -> np.ndarray:
         """Mean profile value over each unit pixel square (supersampled)."""
         s = self.supersample

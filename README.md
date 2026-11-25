@@ -10,7 +10,9 @@
 ```bash
 pip install -r requirements.txt
 python tests/test_smudge.py      # 22 个测试 / 85 个断言
+python tests/test_migration.py   # 9 个迁移、存档与重放测试
 python tests/demo_runner.py      # 生成 outputs/ 下的 PNG、.npy 与账本
+python tests/migration_demo.py   # 生成 10_* 迁移记录、半程存档与对比导出
 python tests/verify_exports.py   # 不依赖引擎数学，独立核对导出像素
 ```
 
@@ -44,6 +46,26 @@ alpha 体积。
 - **透明区处理**：透明像素的预乘颜料为 0，拾色什么也取不到；沉积时按储量自身颜色在
   新覆盖的 alpha 上落色，因此颜料可以穿过透明间隙且颜色不变；未接触区域逐位保持。
 - **边缘裁剪**：落在画布外的沉积不销毁也不虚构，留在储量里并记入 `clipped_paint`。
+
+### 旧笔尖颜色档迁移
+
+`smudge.migration.migrate_legacy_brush` 把只含 `tip_color`/`nib_color` 的旧笔刷读成
+带 `capacity` 的颜料仓配方，并为每个字段保留来源与确认状态：
+
+- 显式 `"capacity": 0` 是已确认的零容量；从来没有存过容量键则保持 `pending`，不会被
+  误读成零。可用 `provisional_capacity` 仅供重放，决定仍标记为待确认。
+- `humidity` 缺失时保持待确认；引擎传输仍由显式 `pickup_rate` / `deposit_rate` 决定，
+  不把未证实的湿度公式伪装成历史事实。
+- `infer_capacity_bounds` 从 `picked` 与实际 `debit` 事件回推容量前缀区间。若存在
+  `pickup_lost > 0` 和事件前储量，可在饱和点恢复精确容量；否则只给最低下界。
+- 无法还原真实持续笔画起点时，第一个可重放事件会写成带坐标的 `StrokeOrigin` 标记，状态
+  为 `marked`/待确认，而不是冒充历史真起点。
+- `BrushWorkbench.open_project` 同时保留未改写的旧 raw 句柄和迁移后的新句柄。旧工程只读
+  打开；确认项和转换结果写入另存的 conversion JSON。`SmudgeSession.save_checkpoint` /
+  `load_checkpoint` 可在半笔时保存画布、储量、弧长细分锚点和账本，重载后继续的结果与一次
+  跑完逐位一致。
+- `outputs/10_migration_record.json` 是红区拾色、穿透明区、进入蓝区的可回查记录，包含
+  拾色损耗、画布增量、命名边缘差异、剩余色量、容量推断和源档 SHA-256。
 
 ### 主要参数（`SmudgeConfig`）
 

@@ -37,8 +37,8 @@ import numpy as np
 
 from .brush import Footprint
 
-LEDGER_KEYS = ("picked", "issued", "retained", "occluded",
-               "clipped_paint", "spill")
+LEDGER_KEYS = ("picked", "pickup_lost", "issued", "debit", "retained",
+               "occluded", "clipped_paint", "spill")
 
 
 def _empty_delta() -> dict:
@@ -224,8 +224,10 @@ def step_contact(canvas, brush, y, x, pressure, speed_factor, cfg,
     # Debit exactly the paint that mixed into the canvas. Displaced base color
     # is not the brush's paint and is therefore never subtracted here.
     reservoir.pm += picked - debit
-    delta.update(picked=picked, issued=issued, retained=retained,
-                 occluded=occluded, clipped_paint=clipped_paint, spill=spill)
+    pickup_lost = request - picked
+    delta.update(picked=picked, pickup_lost=pickup_lost, issued=issued,
+                 debit=debit, retained=retained, occluded=occluded,
+                 clipped_paint=clipped_paint, spill=spill)
     return delta
 
 
@@ -264,6 +266,8 @@ def step_flux(canvas, brush, y, x, pressure, speed_factor, cfg,
     spill = canvas.write_premultiplied(rows, cols, new_pm).sum(axis=0)
 
     reservoir.pm += picked - debit
-    delta.update(picked=picked, issued=issued, retained=retained,
-                 occluded=occluded, clipped_paint=clipped_paint, spill=spill)
+    pickup_lost = request - picked
+    delta.update(picked=picked, pickup_lost=pickup_lost, issued=issued,
+                 debit=debit, retained=retained, occluded=occluded,
+                 clipped_paint=clipped_paint, spill=spill)
     return delta

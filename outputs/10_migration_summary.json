@@ -1,0 +1,15 @@
+{
+  "all_named_edges_exact": true,
+  "canvas_exact_match": true,
+  "capacity_status": "derived",
+  "checkpoint": "/workspace/outputs/10_halfway_checkpoint.json",
+  "converted_project": "/workspace/outputs/10_converted_project.json",
+  "legacy_source_sha256": "42cb204538c350dbf04a03294bfe975568654c29c4c7fb25a9fa746ca8ea6ae9",
+  "legacy_source_unchanged": true,
+  "record": "/workspace/outputs/10_migration_record.json",
+  "remaining_alpha": 0.9999999969479533,
+  "unresolved_fields": [
+    "humidity",
+    "stroke_start"
+  ]
+}

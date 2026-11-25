@@ -1,0 +1,17 @@
+{
+  "active_brush_id": "red-gap-blue",
+  "brushes": {
+    "red-gap-blue": {
+      "format": "legacy_tip_color_only",
+      "id": "red-gap-blue",
+      "tip_color": [
+        0.8,
+        0.1,
+        0.1,
+        1.0
+      ]
+    }
+  },
+  "format": "smudge-project",
+  "note": "Deliberately contains only the legacy nib color for the brush."
+}

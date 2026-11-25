@@ -1,0 +1,510 @@
+{
+  "brush_id": "red-gap-blue",
+  "capacity_inference": {
+    "aggregate_only": false,
+    "applicability": "exact_at_recorded_saturation",
+    "assumptions": [
+      "amounts are premultiplied alpha volumes",
+      "the marked origin is the zero point for cumulative net transport"
+    ],
+    "event_count": 72,
+    "exact_capacity": 1.0,
+    "feasible": true,
+    "fixed_initial_capacity": null,
+    "minimum_capacity": 0.9999999969479533,
+    "minimum_initial_load": 0.0,
+    "origin": {
+      "event_index": 0,
+      "historical_start_known": false,
+      "layer": null,
+      "point_index": 0,
+      "reason": "fallback origin at first replayable event; earlier pickup and the real continuous-stroke start cannot be reconstructed",
+      "status": "marked",
+      "stroke_id": 1,
+      "x": 10.0,
+      "y": 20.0
+    },
+    "saturated": true
+  },
+  "comparisons": [
+    {
+      "canvas_diff": {
+        "close_match": true,
+        "exact_match": true,
+        "max_abs_rgba": 0.0,
+        "mean_abs_rgba": 0.0
+      },
+      "canvas_increment": {
+        "converted": {
+          "alpha_net_sum": -0.9999999969479543,
+          "alpha_positive_sum": 1.6497097673416037,
+          "paint_mass_delta_pm": [
+            -0.7045239634960581,
+            -0.09999999969315354,
+            -0.9000230021770221,
+            -0.9999999969477358
+          ],
+          "rgba_abs_sum": [
+            167.1908845036532,
+            20.999999999999535,
+            22.95805976504173,
+            4.299419531631164
+          ],
+          "rgba_net_sum": [
+            165.68135196558694,
+            20.999999999999535,
+            22.95805976504173,
+            -0.9999999969479528
+          ],
+          "rgba_positive_sum": [
+            166.4361182346201,
+            20.999999999999535,
+            22.95805976504173,
+            1.6497097673416026
+          ]
+        },
+        "original": {
+          "alpha_net_sum": -0.9999999969479543,
+          "alpha_positive_sum": 1.6497097673416037,
+          "paint_mass_delta_pm": [
+            -0.7045239634960581,
+            -0.09999999969315354,
+            -0.9000230021770221,
+            -0.9999999969477358
+          ],
+          "rgba_abs_sum": [
+            167.1908845036532,
+            20.999999999999535,
+            22.95805976504173,
+            4.299419531631164
+          ],
+          "rgba_net_sum": [
+            165.68135196558694,
+            20.999999999999535,
+            22.95805976504173,
+            -0.9999999969479528
+          ],
+          "rgba_positive_sum": [
+            166.4361182346201,
+            20.999999999999535,
+            22.95805976504173,
+            1.6497097673416026
+          ]
+        }
+      },
+      "matches_within_atol": true,
+      "name": "red_pickup_transparent_gap_blue_pickup_halfway_reload",
+      "pickup": {
+        "converted_loss_fraction": 0.9238943553949959,
+        "converted_picked_pm": [
+          1.4025294274056963,
+          0.28688663529254416,
+          1.306945008807185,
+          2.86886635292544
+        ],
+        "converted_pickup_lost_alpha": 34.82697562850891,
+        "converted_pickup_lost_pm": [
+          15.571650770782009,
+          3.4826975628508894,
+          17.489010557856364,
+          34.82697562850891
+        ],
+        "original_loss_fraction": 0.9238943553949959,
+        "original_picked_pm": [
+          1.4025294274056963,
+          0.28688663529254416,
+          1.306945008807185,
+          2.86886635292544
+        ],
+        "original_pickup_lost_alpha": 34.82697562850891,
+        "original_pickup_lost_pm": [
+          15.571650770782009,
+          3.4826975628508894,
+          17.489010557856364,
+          34.82697562850891
+        ]
+      },
+      "remaining_reservoir_pm": {
+        "converted": [
+          0.00298771374817793,
+          0.09999999969479556,
+          0.9000230021771514,
+          0.9999999969479533
+        ],
+        "converted_alpha": 0.9999999969479533,
+        "original": [
+          0.00298771374817793,
+          0.09999999969479556,
+          0.9000230021771514,
+          0.9999999969479533
+        ],
+        "original_alpha": 0.9999999969479533
+      },
+      "stamp_counts": [
+        72,
+        72
+      ]
+    }
+  ],
+  "decisions": {
+    "capacity": {
+      "is_pending": false,
+      "lower_bound": 0.9999999969479533,
+      "name": "capacity",
+      "needs_confirmation": false,
+      "provisional_value": null,
+      "reason": "capacity recovered from a recorded saturation event",
+      "source_key": null,
+      "status": "derived",
+      "status_zh": "历史推导",
+      "upper_bound": 1.0,
+      "value": 1.0
+    },
+    "humidity": {
+      "is_pending": true,
+      "lower_bound": null,
+      "name": "humidity",
+      "needs_confirmation": true,
+      "provisional_value": null,
+      "reason": "legacy tip-only archive does not store humidity; it remains unconfirmed rather than being inferred",
+      "source_key": null,
+      "status": "pending",
+      "status_zh": "待确认",
+      "upper_bound": null,
+      "value": null
+    },
+    "stroke_start": {
+      "is_pending": true,
+      "lower_bound": null,
+      "name": "stroke_start",
+      "needs_confirmation": true,
+      "provisional_value": null,
+      "reason": "fallback origin at first replayable event; earlier pickup and the real continuous-stroke start cannot be reconstructed",
+      "source_key": "stroke_history",
+      "status": "marked",
+      "status_zh": "已标起算点，真起点待确认",
+      "upper_bound": null,
+      "value": {
+        "point_index": 0,
+        "stroke_id": 1,
+        "x": 10.0,
+        "y": 20.0
+      }
+    },
+    "tip_color": {
+      "is_pending": false,
+      "lower_bound": null,
+      "name": "tip_color",
+      "needs_confirmation": false,
+      "provisional_value": null,
+      "reason": "stored legacy nib color",
+      "source_key": "tip_color",
+      "status": "confirmed",
+      "status_zh": "已确认",
+      "upper_bound": null,
+      "value": [
+        0.8,
+        0.1,
+        0.1,
+        1.0
+      ]
+    }
+  },
+  "events": [
+    {
+      "detail": {
+        "is_pending": false,
+        "lower_bound": null,
+        "name": "tip_color",
+        "needs_confirmation": false,
+        "provisional_value": null,
+        "reason": "stored legacy nib color",
+        "source_key": "tip_color",
+        "status": "confirmed",
+        "status_zh": "已确认",
+        "upper_bound": null,
+        "value": [
+          0.8,
+          0.1,
+          0.1,
+          1.0
+        ]
+      },
+      "kind": "field:tip_color"
+    },
+    {
+      "detail": {
+        "is_pending": true,
+        "lower_bound": null,
+        "name": "humidity",
+        "needs_confirmation": true,
+        "provisional_value": null,
+        "reason": "legacy tip-only archive does not store humidity; it remains unconfirmed rather than being inferred",
+        "source_key": null,
+        "status": "pending",
+        "status_zh": "待确认",
+        "upper_bound": null,
+        "value": null
+      },
+      "kind": "field:humidity"
+    },
+    {
+      "detail": {
+        "is_pending": true,
+        "lower_bound": null,
+        "name": "stroke_start",
+        "needs_confirmation": true,
+        "provisional_value": null,
+        "reason": "fallback origin at first replayable event; earlier pickup and the real continuous-stroke start cannot be reconstructed",
+        "source_key": "stroke_history",
+        "status": "marked",
+        "status_zh": "已标起算点，真起点待确认",
+        "upper_bound": null,
+        "value": {
+          "point_index": 0,
+          "stroke_id": 1,
+          "x": 10.0,
+          "y": 20.0
+        }
+      },
+      "kind": "field:stroke_start"
+    },
+    {
+      "detail": {
+        "is_pending": false,
+        "lower_bound": 0.9999999969479533,
+        "name": "capacity",
+        "needs_confirmation": false,
+        "provisional_value": null,
+        "reason": "capacity recovered from a recorded saturation event",
+        "source_key": null,
+        "status": "derived",
+        "status_zh": "历史推导",
+        "upper_bound": 1.0,
+        "value": 1.0
+      },
+      "kind": "field:capacity"
+    },
+    {
+      "detail": {
+        "capacity": 1.0,
+        "initial_pm": [
+          0.8,
+          0.1,
+          0.1,
+          1.0
+        ],
+        "meaning": "full reservoir restored by the supplied capacity"
+      },
+      "kind": "reference_nib_restoration"
+    },
+    {
+      "detail": {
+        "explicit_zero": {
+          "is_pending": false,
+          "lower_bound": null,
+          "name": "capacity",
+          "needs_confirmation": false,
+          "provisional_value": null,
+          "reason": "archive explicitly stores zero capacity",
+          "source_key": "capacity",
+          "status": "confirmed",
+          "status_zh": "已确认",
+          "upper_bound": null,
+          "value": 0.0
+        },
+        "never_stored": {
+          "is_pending": true,
+          "lower_bound": null,
+          "name": "capacity",
+          "needs_confirmation": true,
+          "provisional_value": null,
+          "reason": "capacity key was never stored and no history is available",
+          "source_key": null,
+          "status": "pending",
+          "status_zh": "待确认",
+          "upper_bound": null,
+          "value": null
+        }
+      },
+      "kind": "zero_vs_missing_capacity"
+    },
+    {
+      "detail": {
+        "canvas_diff": {
+          "close_match": true,
+          "exact_match": true,
+          "max_abs_rgba": 0.0,
+          "mean_abs_rgba": 0.0
+        },
+        "canvas_increment": {
+          "converted": {
+            "alpha_net_sum": -0.9999999969479543,
+            "alpha_positive_sum": 1.6497097673416037,
+            "paint_mass_delta_pm": [
+              -0.7045239634960581,
+              -0.09999999969315354,
+              -0.9000230021770221,
+              -0.9999999969477358
+            ],
+            "rgba_abs_sum": [
+              167.1908845036532,
+              20.999999999999535,
+              22.95805976504173,
+              4.299419531631164
+            ],
+            "rgba_net_sum": [
+              165.68135196558694,
+              20.999999999999535,
+              22.95805976504173,
+              -0.9999999969479528
+            ],
+            "rgba_positive_sum": [
+              166.4361182346201,
+              20.999999999999535,
+              22.95805976504173,
+              1.6497097673416026
+            ]
+          },
+          "original": {
+            "alpha_net_sum": -0.9999999969479543,
+            "alpha_positive_sum": 1.6497097673416037,
+            "paint_mass_delta_pm": [
+              -0.7045239634960581,
+              -0.09999999969315354,
+              -0.9000230021770221,
+              -0.9999999969477358
+            ],
+            "rgba_abs_sum": [
+              167.1908845036532,
+              20.999999999999535,
+              22.95805976504173,
+              4.299419531631164
+            ],
+            "rgba_net_sum": [
+              165.68135196558694,
+              20.999999999999535,
+              22.95805976504173,
+              -0.9999999969479528
+            ],
+            "rgba_positive_sum": [
+              166.4361182346201,
+              20.999999999999535,
+              22.95805976504173,
+              1.6497097673416026
+            ]
+          }
+        },
+        "matches_within_atol": true,
+        "name": "red_pickup_transparent_gap_blue_pickup_halfway_reload",
+        "pickup": {
+          "converted_loss_fraction": 0.9238943553949959,
+          "converted_picked_pm": [
+            1.4025294274056963,
+            0.28688663529254416,
+            1.306945008807185,
+            2.86886635292544
+          ],
+          "converted_pickup_lost_alpha": 34.82697562850891,
+          "converted_pickup_lost_pm": [
+            15.571650770782009,
+            3.4826975628508894,
+            17.489010557856364,
+            34.82697562850891
+          ],
+          "original_loss_fraction": 0.9238943553949959,
+          "original_picked_pm": [
+            1.4025294274056963,
+            0.28688663529254416,
+            1.306945008807185,
+            2.86886635292544
+          ],
+          "original_pickup_lost_alpha": 34.82697562850891,
+          "original_pickup_lost_pm": [
+            15.571650770782009,
+            3.4826975628508894,
+            17.489010557856364,
+            34.82697562850891
+          ]
+        },
+        "remaining_reservoir_pm": {
+          "converted": [
+            0.00298771374817793,
+            0.09999999969479556,
+            0.9000230021771514,
+            0.9999999969479533
+          ],
+          "converted_alpha": 0.9999999969479533,
+          "original": [
+            0.00298771374817793,
+            0.09999999969479556,
+            0.9000230021771514,
+            0.9999999969479533
+          ],
+          "original_alpha": 0.9999999969479533
+        },
+        "stamp_counts": [
+          72,
+          72
+        ]
+      },
+      "kind": "replay_comparison"
+    },
+    {
+      "detail": {
+        "edges": {
+          "all_edges_exact": true,
+          "blue_interior": {
+            "exact": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0
+          },
+          "red_to_transparent_edge": {
+            "exact": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0
+          },
+          "transparent_gap": {
+            "exact": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0
+          },
+          "transparent_to_blue_edge": {
+            "exact": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0
+          }
+        },
+        "remaining_alpha": 0.9999999969479533,
+        "remaining_capacity": 1.0,
+        "remaining_reservoir_pm": [
+          0.00298771374817793,
+          0.09999999969479556,
+          0.9000230021771514,
+          0.9999999969479533
+        ]
+      },
+      "kind": "edge_and_remaining_color_replay"
+    }
+  ],
+  "origin": {
+    "event_index": 0,
+    "historical_start_known": false,
+    "layer": null,
+    "point_index": 0,
+    "reason": "fallback origin at first replayable event; earlier pickup and the real continuous-stroke start cannot be reconstructed",
+    "status": "marked",
+    "stroke_id": 1,
+    "x": 10.0,
+    "y": 20.0
+  },
+  "record_type": "brush_migration_record",
+  "source_format": "legacy_tip_color",
+  "source_path": "/workspace/outputs/10_legacy_project.json",
+  "source_sha256": "42cb204538c350dbf04a03294bfe975568654c29c4c7fb25a9fa746ca8ea6ae9",
+  "status": "pending",
+  "unresolved_fields": [
+    "humidity",
+    "stroke_start"
+  ]
+}
